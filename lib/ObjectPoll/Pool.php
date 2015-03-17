@@ -3,7 +3,7 @@
 namespace ObjectPoll;
 
 /**
- * Class Pool
+ * Interface Pool
  *
  * @author	Konstantin Ryapolov <kryapolov@yandex.ru>
  * @package ExtProcs
@@ -21,6 +21,13 @@ interface Pool {
      * @return mixed
      */
     public function getByKey($key);
+
+    /**
+     * @param $key
+     *
+     * @return object
+     */
+    public function constructByKey($key);
 
     /**
      * @param $key
