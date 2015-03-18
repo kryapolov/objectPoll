@@ -7,8 +7,8 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
-                'objectpoll\\objectpool' => '/ObjectPool.php',
-                'objectpoll\\pool' => '/Pool.php'
+                'objectpool\\objectpool' => '/ObjectPool.php',
+                'objectpool\\pool' => '/Pool.php'
             );
         }
         $cn = strtolower($class);
