@@ -1,0 +1,16 @@
+<phpunit bootstrap="../lib/ObjectPoll/autoload.php">
+    <testsuites>
+        <testsuite>
+            <directory>../tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../lib/ObjectPoll</directory>
+            <exclude>
+                <file>../lib/ObjectPoll/autoload.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
