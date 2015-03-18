@@ -1,6 +1,7 @@
 <?php
 
 namespace ObjectPool\tests;
+
 use ObjectPool\ObjectPool;
 use ObjectPool\tests\stubs\ExampleOne;
 use ObjectPool\tests\stubs\ExampleTwo;
@@ -11,7 +12,8 @@ use ObjectPool\tests\stubs\ExampleTwo;
  *
  * @package ObjectPool\tests
  */
-class PoolTest extends \PHPUnit_Framework_TestCase {
+class PoolTest extends \PHPUnit_Framework_TestCase
+{
 
     const MAX_POLL_SIZE = 149;
     const EXAMPLE_KEY = 'ObjectPool\tests\stubs\ExampleOne';
@@ -60,7 +62,8 @@ class PoolTest extends \PHPUnit_Framework_TestCase {
     /**
      * default realisation class builer
      */
-    public function testConstructByKey(){
+    public function testConstructByKey()
+    {
 
         if (!class_exists($this::EXAMPLE_KEY)) {
             //WTF
@@ -77,7 +80,8 @@ class PoolTest extends \PHPUnit_Framework_TestCase {
     /**
      * check overflow limit filter
      */
-    public function testCheckingOfSizeRestrictions(){
+    public function testCheckingOfSizeRestrictions()
+    {
 
 
         $pool = new ObjectPool();
@@ -102,7 +106,8 @@ class PoolTest extends \PHPUnit_Framework_TestCase {
     /**
      * check all get method return correct set object
      */
-    public function testGetByKeys(){
+    public function testGetByKeys()
+    {
 
         $pool = new ObjectPool();
 
@@ -120,7 +125,8 @@ class PoolTest extends \PHPUnit_Framework_TestCase {
     /**
      * check simple setByKey to Pool
      */
-    public  function testSetToPool(){
+    public function testSetToPool()
+    {
 
         $pool = new ObjectPool();
 
@@ -134,6 +140,29 @@ class PoolTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertEquals($exampleOne, $checkOne);
         $this->assertEquals($exampleOne, $checkTwo);
+    }
+
+
+    /**
+     * check correct remove value by key
+     */
+    public function testEraseByKey()
+    {
+        $pool = new ObjectPool();
+
+        $exampleOne = new ExampleOne();
+        $keyOfExampleOne = $exampleOne->getName();
+
+        $pool->setToPool($keyOfExampleOne, $exampleOne);
+
+        $checkOne = $pool->getByKey($keyOfExampleOne);
+
+        $pool->eraseByKey($keyOfExampleOne);
+
+
+        $this->assertEquals($exampleOne, $checkOne);
+        $this->assertEquals(0, $pool->getPoolSize());
+
     }
 
 
