@@ -77,6 +77,8 @@ class ObjectPool implements Pool
                 throw new \ErrorException("Target Object not be construct!");
             }
         }
+
+        return $this->pool[$key];
     }
 
     /**

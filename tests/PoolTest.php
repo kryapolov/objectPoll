@@ -74,4 +74,30 @@ class PoolTest extends \PHPUnit_Framework_TestCase {
     }
 
 
+    /**
+     * check overflow limit filter
+     */
+    public function testCheckingOfSizeRestrictions(){
+
+
+        $pool = new ObjectPool();
+
+        $exampleOne = new ExampleOne();
+        $keyOfExampleOne = $exampleOne->getName();
+
+        $exampleTwo = new ExampleTwo();
+        $keyOfExampleTwo = $exampleTwo->getName();
+
+        $pool->setMaxPoolSize(1);
+
+        $pool->getByKeyRecursive($keyOfExampleOne);
+        $pool->getByKeyRecursive($keyOfExampleTwo);
+
+        $pollSizeAftherOverflow = $pool->getPoolSize();
+
+        $this->assertEquals(1, $pollSizeAftherOverflow);
+
+    }
+
+
 }
