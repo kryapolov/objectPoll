@@ -9,6 +9,8 @@ spl_autoload_register(
             $classes = array(
                 'objectpool\\objectpool' => '/ObjectPool.php',
                 'objectpool\\pool' => '/Pool.php',
+                'objectpool\\tests\\stubs\\exampleone' => '/../../tests/stubs/EexampleOne.php',
+                'objectpool\\tests\\stubs\\exampletwo' => '/../../tests/stubs/ExampleTwo.php',
                 'objectpool\\tests\\traits\\internaluses' => '/../../tests/traits/internalUses.php'
             );
         }
