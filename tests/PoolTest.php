@@ -165,5 +165,17 @@ class PoolTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * hmm it can be broken
+     */
+    public function testGetPool(){
+
+        $pool = new ObjectPool();
+
+        $pool->getPool();
+        $this->assertEquals($pool, $pool->getPool());
+
+    }
+
 
 }
