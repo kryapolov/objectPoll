@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
-require_once('lib/ObjectPoll/autoload.php');
+require_once('lib/ObjectPool/autoload.php');
 
-use ObjectPoll\ObjectPool;
+use ObjectPool\ObjectPool;
 
 trait internalUses
 {
