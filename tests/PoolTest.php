@@ -14,6 +14,7 @@ use ObjectPool\tests\stubs\ExampleTwo;
 class PoolTest extends \PHPUnit_Framework_TestCase {
 
     const MAX_POLL_SIZE = 149;
+    const EXAMPLE_KEY = 'ObjectPool\tests\stubs\ExampleOne';
 
 
     public function testSizeHasBeSet()
@@ -53,6 +54,22 @@ class PoolTest extends \PHPUnit_Framework_TestCase {
         $pool->getByKeyRecursive($keyOfExampleTwo);
 
         $this->assertEquals($firstSize, $pool->getPoolSize());
+
+    }
+
+    /**
+     * default realisation class builer
+     */
+    public function testConstructByKey(){
+
+        if (!class_exists($this::EXAMPLE_KEY)) {
+            //WTF
+        }
+
+        $pool = new ObjectPool();
+        $constructed = $pool->constructByKey($this::EXAMPLE_KEY);
+
+        $this->assertEquals(true, is_a($constructed, $this::EXAMPLE_KEY));
 
     }
 
