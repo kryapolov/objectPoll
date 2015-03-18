@@ -99,5 +99,25 @@ class PoolTest extends \PHPUnit_Framework_TestCase {
 
     }
 
+    /**
+     * check all get method return correct set object
+     */
+    public function testGetByKeys(){
+
+        $pool = new ObjectPool();
+
+        $exampleOne = new ExampleOne();
+        $keyOfExampleOne = $exampleOne->getName();
+
+        $checkOne = $pool->getByKeyRecursive($keyOfExampleOne);
+        $checkTwo = $pool->getByKey($keyOfExampleOne);
+
+        $this->assertEquals($exampleOne, $checkOne);
+        $this->assertEquals($exampleOne, $checkTwo);
+
+    }
+
+
+
 
 }
