@@ -8,7 +8,10 @@ spl_autoload_register(
         if ($classes === null) {
             $classes = array(
                 'objectpool\\objectpool' => '/ObjectPool.php',
-                'objectpool\\pool' => '/Pool.php'
+                'objectpool\\pool' => '/Pool.php',
+                'objectpool\\tests\\stubs\\exampleone' => '/../../tests/stubs/ExampleOne.php',
+                'objectpool\\tests\\stubs\\exampletwo' => '/../../tests/stubs/ExampleTwo.php',
+                'objectpool\\tests\\traits\\internaluses' => '/../../tests/traits/internalUses.php'
             );
         }
         $cn = strtolower($class);

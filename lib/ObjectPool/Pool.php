@@ -68,5 +68,3 @@ interface Pool {
      */
     public function getPoolSize();
 }
-
-?>

@@ -3,49 +3,21 @@
 require_once('lib/ObjectPool/autoload.php');
 
 use ObjectPool\ObjectPool;
+use ObjectPool\tests\traits\internalUses;
+use ObjectPool\tests\stubs\ExampleOne;
+use ObjectPool\tests\stubs\ExampleTwo;
 
-trait internalUses
-{
-    public function getName()
-    {
-        return $this->name;
-    }
-}
-
-
-class A101
-{
-
-    use internalUses;
-
-    private $name;
-
-    public function __construct()
-    {
-        $this->name = __CLASS__;
-    }
-
-}
-
-class A102
-{
-    private $name;
-    use internalUses;
-
-    public function __construct()
-    {
-        $this->name = __CLASS__;
-    }
-
-}
-
+$exampleOne = new ExampleOne();
+$keyOfExampleOne = $exampleOne->getName();
+$exampleTwo = new ExampleTwo();
+$keyOfExampleTwo = $exampleTwo->getName();
 
 $pool = new ObjectPool();
 
-$pool->getByKeyRecursive("A101");
-$pool->getByKeyRecursive("A102");
-$pool->getByKeyRecursive("A101");
-$pool->getByKeyRecursive("A102");
+$pool->getByKeyRecursive($keyOfExampleOne);
+$pool->getByKeyRecursive($keyOfExampleTwo);
+$pool->getByKeyRecursive($keyOfExampleOne);
+$pool->getByKeyRecursive($keyOfExampleTwo);
 
 echo "number of objects in the pool: ".$pool->getPoolSize()."\n\r";
 
