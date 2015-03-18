@@ -1,4 +1,4 @@
-<phpunit bootstrap="../lib/ObjectPoll/autoload.php">
+<phpunit bootstrap="../lib/ObjectPool/autoload.php">
     <testsuites>
         <testsuite>
             <directory>../tests</directory>
@@ -7,9 +7,9 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">../lib/ObjectPoll</directory>
+            <directory suffix=".php">../lib/ObjectPool</directory>
             <exclude>
-                <file>../lib/ObjectPoll/autoload.php</file>
+                <file>../lib/ObjectPool/autoload.php</file>
             </exclude>
         </whitelist>
     </filter>

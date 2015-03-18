@@ -1,6 +1,6 @@
 <?php
 
-namespace ObjectPoll;
+namespace ObjectPool;
 
 /**
  * Class ObjectPool

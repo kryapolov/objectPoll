@@ -5,5 +5,5 @@
 ## Examples
 
 - exec test: phpunit -c build/phpunit.xml --coverage-text
-- exec generate autoload: phpab --output lib/ObjectPoll/autoload.php lib/ObjectPoll
+- exec generate autoload: phpab --output lib/ObjectPool/autoload.php lib/ObjectPool
 - exec example: php examples/example.php
