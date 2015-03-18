@@ -117,7 +117,24 @@ class PoolTest extends \PHPUnit_Framework_TestCase {
 
     }
 
+    /**
+     * check simple setByKey to Pool
+     */
+    public  function testSetToPool(){
 
+        $pool = new ObjectPool();
+
+        $exampleOne = new ExampleOne();
+        $keyOfExampleOne = $exampleOne->getName();
+
+        $pool->setToPool($keyOfExampleOne, $exampleOne);
+
+        $checkOne = $pool->getByKeyRecursive($keyOfExampleOne);
+        $checkTwo = $pool->getByKey($keyOfExampleOne);
+
+        $this->assertEquals($exampleOne, $checkOne);
+        $this->assertEquals($exampleOne, $checkTwo);
+    }
 
 
 }
