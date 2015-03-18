@@ -3,15 +3,7 @@
 require_once('lib/ObjectPool/autoload.php');
 
 use ObjectPool\ObjectPool;
-
-trait internalUses
-{
-    public function getName()
-    {
-        return $this->name;
-    }
-}
-
+use ObjectPool\tests\traits\internalUses;
 
 class A101
 {
